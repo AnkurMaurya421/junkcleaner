@@ -1,14 +1,18 @@
 from tkinter import *
 from tkinter import ttk
-import programs_gui as pgui
-import files_gui as fgui
+from tkinter.ttk import *
+import Programs as pg
 window = Tk()
-window.geometry("150x70")
+window.geometry("250x70")
 window.title("CleanByDate")
 window.configure(background="black")
 def openprogramsgui():
-    pgui.window2.mainloop()
+   program_window=Toplevel(window)
+   program_window.title("uninstall programs")
+   app_dictionary=pg.get_applications_with_location_and_without_locations()
+
 def openfilesgui():
-    fgui.window1.mainloop()
+    files_window = Toplevel(window)
+    files_window.title("Delete Files")
 Button(window,text="Uninstall Programs",command=openprogramsgui).grid(row=1,column=0,sticky=E)
 Button(window,text="Delete Files",command=openfilesgui).grid(row=2,column=0,sticky=W)
