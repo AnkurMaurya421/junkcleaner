@@ -9,14 +9,18 @@ window.configure(background="black")
 def openprogramsgui():
    program_window=Toplevel(window)
    program_window.title("uninstall programs")
-   app_dictionary=pg.get_applications_with_location()
+   app_dictionary= pg.get_applications_with_location()
    canvas = Canvas(program_window)
    scroll_y = Scrollbar(program_window, orient="vertical", command=canvas.yview)
    frame = Frame(canvas)
    # group of widgets
-   for i in range(35):
-       Button(frame, text="hrllo").pack()
-       Label()
+   Label(frame, text="Click to uninstall",anchor=CENTER,font = "None 16 bold ").grid(row=0, column=0, sticky=W)
+   Label(frame, text="Last used date",font = "None 16 bold ").grid(row=0, column=0, sticky=E)
+   counter=1
+   for i,j in app_dictionary.items():
+       Button(frame, text=i).grid(row=counter,column=0,sticky=W)
+       Label(frame,text=j).grid(row=counter,column=0,sticky=E)
+       counter+=1
    # put the frame in the canvas
    canvas.create_window(0, 0, anchor='nw', window=frame)
    # make sure everything is displayed before configuring the scrollregion
