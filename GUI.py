@@ -2,17 +2,16 @@ from tkinter import *
 from tkinter import ttk
 from tkinter.ttk import *
 import Programs as pg
-window = Tk()
+window = Tk()               #
 window.geometry("250x70")
 window.title("CleanByDate")
 window.configure(background="black")
 def openprogramsgui():
    program_window=Toplevel(window)
    program_window.title("uninstall programs")
-   app_dictionary=pg.get_applications_with_location_and_without_locations()
+   app_dictionary=pg.get_applications_with_location()
    canvas = Canvas(program_window)
    scroll_y = Scrollbar(program_window, orient="vertical", command=canvas.yview)
-
    frame = Frame(canvas)
    # group of widgets
    for i in range(35):

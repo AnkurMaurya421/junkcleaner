@@ -1,11 +1,10 @@
-import winapps as windows
-import os
-import time
+import winapps as windows   #module to get list of installed applications and also used to uninstall them
+import os   #module to handle files and OS operations
+import time # to convert last access time stamp to readable date and time
 
 
-def get_applications_with_location_and_without_locations():
-    applications_with_uninstallstring = {}
-    #applications_without_uninstallstring = {}
+def get_applications_with_location(): #function to check that which programs have their installed location and uninstall string registered in registry  and return dictionary in which key=application name and value=install location
+    applications_with_uninstallstring = {}      #get applications which can be uninstalled
     for application in windows.list_installed():
         if application.uninstall_string is None or application.uninstall_string == "":
             pass
