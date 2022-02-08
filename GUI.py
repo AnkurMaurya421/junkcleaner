@@ -1,6 +1,8 @@
 from tkinter import *
+import winapps as windows
 from tkinter import ttk
 from tkinter.ttk import *
+from tkinter import messagebox
 import Programs as pg
 window = Tk()               #
 window.geometry("250x70")
@@ -14,11 +16,11 @@ def openprogramsgui():
    scroll_y = Scrollbar(program_window, orient="vertical", command=canvas.yview)
    frame = Frame(canvas)
    # group of widgets
-   Label(frame, text="Click to uninstall",anchor=CENTER,font = "None 16 bold ").grid(row=0, column=0, sticky=W)
+   Label(frame, text="Click to uninstall",anchor=CENTER,font = "None 16 bold").grid(row=0, column=0, sticky=W)
    Label(frame, text="Last used date",font = "None 16 bold ").grid(row=0, column=0, sticky=E)
    counter=1
    for i,j in app_dictionary.items():
-       Button(frame, text=i).grid(row=counter,column=0,sticky=W)
+       Button(frame, text=i,command=lambda:uninstall(str(i))).grid(row=counter,column=0,sticky=W)
        Label(frame,text=j).grid(row=counter,column=0,sticky=E)
        counter+=1
    # put the frame in the canvas
