@@ -20,7 +20,7 @@ def get_applications_with_location():  # function to check that which programs h
     return applications_with_uninstallstring
 
 
-def uninstall(application_name,button_object): #to uninstall and delete button
+def uninstall(application_name): #to uninstall and delete button
     try:
         print(application_name)
         windows.uninstall(application_name)
