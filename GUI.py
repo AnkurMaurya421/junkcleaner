@@ -27,7 +27,6 @@ def openprogramsgui():
     Label(frame, text="Last used date", font="None 16 bold ").grid(row=0, column=0, sticky=E)
 
 
-
     counter = 1
     app_dictionary = pg.get_applications_with_location()
     for i, j in app_dictionary.items():
@@ -36,7 +35,7 @@ def openprogramsgui():
         counter += 1
                                                                                 # put the frame in the canvas
     canvas.create_window(0, 0, anchor='nw', window=frame)
-    # make sure everything is displayed before configuring the scrollregion
+                                                                                # make sure everything is displayed before configuring the scrollregion
     canvas.update_idletasks()
     canvas.configure(scrollregion=canvas.bbox('all'),
                      yscrollcommand=scroll_y.set)
