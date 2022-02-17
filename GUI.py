@@ -1,3 +1,4 @@
+import GUI
 from tkinter import *
 import winapps as windows
 from tkinter import ttk
@@ -52,3 +53,8 @@ def openfilesgui():
 
 Button(window, text="Uninstall Programs", command=openprogramsgui).grid(row=1, column=0, sticky=E) #create 2 buttons in parent window
 Button(window, text="Delete Files", command=openfilesgui).grid(row=2, column=0, sticky=W)
+
+class button:
+    def __init__(self,name):
+        self.name=name
+        self.button=Button(text=self.name,command=lambda:pg.uninstall(self.name)).grid(row=counter, column=0, sticky=W)
