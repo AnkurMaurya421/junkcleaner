@@ -1,27 +1,23 @@
 import Programs as pg
 from tkinter import *
-import GUI as guiprogram
-
-from tkinter import ttk
 
 
 def openprogramsgui(self):
-    print("hello1")
     self.program_window = Toplevel(self.window)  #created 2nd window for programs uninstallation
     self.program_window.title("uninstall programs")  #set title
-
+    self.program_window.geometry("550x400")       #set size
     self.canvas = Canvas(self.program_window)             # adding canvas to make window scrollable
     self.scroll_y = Scrollbar(self.program_window, orient="vertical", command=self.canvas.yview)
     self.frame = Frame(self.canvas)                       # adding frame inside canvas to hold buttons and widgets
 
     Label(self.frame, text="Click to uninstall", anchor=CENTER, font="None 16 bold").grid(row=0, column=0,sticky=W)  # adding titles
-    Label(self.frame, text="Last used date", font="None 16 bold ").grid(row=0, column=0, sticky=E)
+    Label(self.frame, text="Last used date", font="None 16 bold ").grid(row=0, column=1, sticky=E)
 
     counter = 1 #initialized row counter
     app_dictionary = pg.get_applications_with_location()
     for i, j in app_dictionary.items():
-        button(self, i, counter)  # created button object to hold the name of program and button that is to be unistalled
-        Label(self.frame, text=j).grid(row=counter, column=0, sticky=E)  #creating label displaying last access date in front of button
+        button(self, i, counter)  # created button object to hold the name of program and button that will uninstall that program
+        Label(self.frame, text=j).grid(row=counter, column=1, sticky=E)  #creating label displaying last access date in front of button
         counter += 1   #increase row counter
 
                                                                           # put the frame in the canvas
